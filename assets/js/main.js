@@ -24,6 +24,15 @@ iniciarSesion.addEventListener("click", (e) => {
       textoAviso.classList.remove("ocultar");
     }
   }
+
+
+
+/* ---------------------- CONFIRMACION CERRAR SESION ---------------------- */
+const btnCerrarSesion = document.querySelector('#cerrarSesion');
+const salir=document.querySelector('#salir')
+const confirmacion = document.querySelector('#confirmarCierreSesion')
+const movimientos=document.querySelector('#movimientos')
+
 btnCerrarSesion.addEventListener('click',()=>{
     const confirmarSalir= document.createElement ('input')
     confirmarSalir.id='Salir'
@@ -55,4 +64,6 @@ btnCerrarSesion.addEventListener('click',()=>{
         confirmacion.innerHTML = ''
     })
     confirmacion.append(alertaCerrar, confirmarSalir,nosalir)
-})})
+})
+})
+
