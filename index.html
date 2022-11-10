@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/styleVistaPrincipal.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <title>Cajero</title>
+  </head>
+  <body>
+    <header>
+      <section class="header__logout">
+        <img src="./assets/img/user.png" alt="" />
+        <input  id="cerrarSesion" type="button" value="CERRAR SESION">
+        <input id="regresar" class="ocultar far fa-arrow-alt-circle-left" type="button" value="REGRESAR">
+      </section>
+    </header>
+
+    <main>
+
+      <!---------------------- MENU DE OPCIONES ---------------------->
+      <form id="movimientos" class="menu">
+        <h4>POR FAVOR SELECCIONE SU TRANSACCION</h4>
+        <hr />
+        <input id="consultar" type="button" value="CONSULTAR SALDO" />
+        <input id="retirar" type="button" value="RETIRAR DINERO" />
+        <input id="transferir" type="button" value="TRANSFERIR DINERO" />
+        <input id="consignar" type="button" value="CONSIGNAR SALDO" />
+      </form>
+      
+      <section id="mostrarSaldo" class="mostrarSaldo ocultar">
+        <h4>Su saldo actual es:</h4>
+        <p id="mostrarSaldo__dato"></p>
+      </section>
+
+      <section id="confirmarCierreSesion" class="ocultar">
+        
+      </section>
+
+      <!---------------------- OPCION RETIRAR ---------------------->
+      <form id="opcionRetirar" class="ocultar" method="POST">
+        <h4>DATOS DE RETIRO </h4> <hr> 
+        <input id="montoRetirar" type="text" placeholder="Monto que desea enviar"> 
+        <input id="fechaRetirar" type="date" placeholder="Fecha"> 
+        <input id="btnRetirar" type="button" value="RETIRAR"></input>
+      </form>
+      <section id="almacenarRetiro" class="almacenarRetiro ocultar">
+        <table id="tablaRetiro" class="tablaRetiro">
+          <thead>
+            <tr>
+              <td>Monto Retirado</td>
+              <td>Fecha Retiro</td>
+            </tr>
+          </thead>
+        </table>
+        <input id="cerrarAlmacenarRetiro" type="button" value="CERRAR">
+      </section>
+
+      <!---------------------- OPCION TRANSFERIR ---------------------->
+      <form id="opcionTransferir" class="ocultar" method="POST">
+        <h4>DATOS DE LA CUENTA DESTINO </h4> <hr> 
+        <input id="nombreTransferir"  type="text" placeholder="Nombre">  
+        <input id="correoTransferir" type="text" placeholder="Correo"> 
+        <input id="numeroCuentaTransferir" type="text" placeholder="Número de cuenta"> 
+        <input id="montoTransferir" type="text" placeholder="Monto que desea enviar"> 
+        <input id="fechaTransferir" type="date" placeholder="Fecha"> 
+        <input id="btnTransferir" type="button" value="TRANSFERIR"></input>
+      </form>
+      <section id="almacenarTransferir" class="almacenarTransferir ocultar">
+        <table id="tablaTransaccion" class="tablaTransaccion">
+          <thead>
+            <tr>
+              <td>Nombre</td>
+              <td>Correo</td>
+              <td>Cuenta destino</td>
+              <td>Monto enviado</td>
+              <td>Fecha transacción</td>
+            </tr>
+          </thead>
+        </table>
+        <input id="cerrarAlmacenar" type="button" value="CERRAR">
+      </section>
+
+
+      <!---------------------- OPCION CONSIGNAR ---------------------->
+      <form id="opcionConsignar" class="ocultar" method="POST">
+        <h4>¿QUE MONTO DESEA CONSIGNAR?</h4> <hr> 
+        <input id="montoConsignar"  type="text" placeholder="Cantidad">
+        <input id="btnConsignar" type="button" value="CONSIGNAR">
+      </form>
+      <section id="alertaConsignar" class="alertaConsignar ocultar">
+        <h4>Consignacion Exitosa</h4>
+        <input id="cerrarAlerta" type="button" value="CERRAR">
+      </section>
+
+    </main>
+
+    <!-- <footer>
+        
+    </footer> -->
+
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>

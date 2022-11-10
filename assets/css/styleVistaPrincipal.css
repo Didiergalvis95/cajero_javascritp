@@ -1,0 +1,402 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,  #08614B, #148761, #12E0AD, #256152, #0EAD86);
+    background-size: 300% 300%;
+    position: relative;
+    animation: animar 7s ease-in-out infinite;
+}
+
+header {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ESTILOS PARA CONTENIDO HEADER */
+.header__logout {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#cerrarSesion {
+    color: white;
+    background-color: #000000b5;
+    border: none;
+    width: 125px;
+    height: 41px;
+    border-radius: 5px 15px;
+    cursor: pointer;
+}
+
+#cerrarSesion:hover{
+    transform: scale(1.1);
+}
+
+#alertaCerrar {
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+#confirmarCierreSesion{
+    margin-top: 10%;
+    margin-right: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px 15px;
+    box-shadow: 7px 7px 10px rgba(240, 240, 240, 0.6);
+    width:40%;
+    height: 30vh;
+    margin-left: 30%;
+    gap: 10px;
+}
+
+#confirmarCierreSesion h4{
+    margin-top: -1%;
+    margin-bottom: 3%;
+}
+
+#confirmarCierreSesion input{
+    width: 30%;
+    height: 5vh;
+    color: white;
+    background-color: #000000b5;
+    border-radius: 5px 15px;
+    cursor: pointer;
+    border: none;
+}
+
+#confirmarCierreSesion input:hover{
+    scale: 1.1;
+}
+
+#regresar{
+    color: white;
+    background-color: #000000b5;
+    border: none;
+    width: 125px;
+    height: 41px;
+    border-radius: 5px 15px;
+    cursor: pointer;
+}
+
+#regresar:hover{
+    scale: 1.1;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+
+img {
+    width: 50px;
+}
+/* FIN ESTILOS PARA CONTENIDO HEADER */
+
+
+main {
+    width: 100%;
+    height: 80%; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 80vh;
+    color: white;
+}
+
+
+h4 {
+    width: 30%;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: -15px;
+}
+
+hr {
+    width: 30%;
+    border-color: black;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.ocultar {
+    display: none !important;
+}
+
+
+.mostrar h4{
+    width: 70% !important;
+}
+.mostrar hr{
+    width: 60% !important;
+}
+.mostrar input{
+    width: 60% !important;
+}
+
+
+
+/* ESTILOS PARA MOVIMIENTOS */
+
+.menu input {
+    width: 30%;
+    height: 10%;
+    background-color: #000000b5;
+    border: none;
+    color: white;
+    box-shadow: 7px 7px 5px rgba(240, 240, 240, 0.6);
+    cursor: pointer;
+    border-radius: 5px 15px;
+}
+
+.menu input:hover {
+    transform: scale(1.1);
+}
+/* FIN ESTILOS PARA MOVIMIENTOS */
+
+
+/* ESTILOS PARA CONSULTAR SALDO */
+.mostrarSaldo{
+    width: 100%;
+    height: 40vh;
+    margin-right: 5%;
+    background-color: #00000039;
+    border-radius: 5px 15px;
+}
+
+.mostrarSaldo h4{
+    width: 100%;
+    color: white;
+    font-size: 25px;
+}
+
+.mostrarSaldo p{
+    font-size: 25px;
+    color: white;
+    letter-spacing: 0.4px;
+    line-height: 1.3;
+    text-align: center;
+}
+/* FIN ESTILOS PARA CONSULTAR SALDO */
+
+
+
+/* ESTILOS PARA CONSIGNAR */
+#opcionConsignar{
+    margin-top: 4%;
+}
+
+#opcionConsignar input:not(#btnConsignar){
+    width: 30%;
+    height: 10%;
+    background-color: #000000b5;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    box-shadow: 7px 7px 5px rgba(240, 240, 240, 0.6);
+    border-radius: 5px;
+    outline: none;
+}
+
+#btnConsignar{
+    width: 15%;
+    height: 10%;
+    background-color: #000000b5;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px 15px;
+}
+
+#btnConsignar:hover{
+    scale: 1.1;
+}
+
+.alertaConsignar{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    height: 20vh;
+    margin-top: 10%;
+    margin-left: 35%;
+    background-color: #00000039;   
+    border-radius: 5px;
+    padding: 10px; 
+}
+
+.alertaConsignar h4{
+    margin-top: 2%;
+    width: 100%;
+    color: white;
+}
+
+#cerrarAlerta{
+    width: 40%;
+    height: 6vh;
+    margin-top: 20%;
+    background-color: #000000b5;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px 15px;
+}
+
+#cerrarAlerta:hover{
+    scale: 1.1;
+}
+/* FIN ESTILOS PARA CONSIGNAR */
+
+
+/* ESTILOS RETIRAR */
+#opcionRetirar input:not(#btnRetirar){
+    width: 30%;
+    height: 10%;
+    background-color: #000000b5;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    box-shadow: 7px 7px 5px rgba(240, 240, 240, 0.6);
+    border-radius: 5px;
+    outline: none;
+}
+
+#btnRetirar{
+    width: 15%;
+    height: 10%;
+    background-color: #000000b5;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px 15px;
+}
+
+#btnRetirar:hover{
+    scale: 1.1;
+}
+
+.almacenarRetiro{
+    margin-top: 5% !important;
+    height: 60vh !important;
+}
+
+.almacenarRetiro td{
+    width: 700px;
+}
+
+#cerrarAlmacenarRetiro{
+    bottom: 15% !important;
+}
+
+/* FIN ESTILOS RETIRAR */
+
+.almacenarTransferir, .almacenarRetiro{
+    width: 100%;
+    height: 70vh;
+    margin: 3%;
+    background-color: #00000039;   
+    border-radius: 5px;
+    padding: 10px; 
+}
+
+thead td{
+    width: 300px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.431);
+    /* border-right: 1px solid rgba(0, 0, 0, 0.431); */
+    padding:0 5px;
+}
+
+tbody td{
+    color: white;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.431);
+}
+
+#cerrarAlmacenar, #cerrarAlmacenarRetiro{
+    position: absolute;
+    left: 40%;
+    bottom: 8%;
+    width: 20%;
+    height: 6vh;
+    background-color: #000000b5;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px 15px;
+}
+
+#cerrarAlmacenar:hover, #cerrarAlmacenarRetiro:hover{
+    scale: 1.1;
+}
+
+/* ESTILOS PARA TRANSFERIR */
+#opcionTransferir input:not(#btnTransferir) {
+    width: 30%;
+    height: 10%;
+    background-color: #000000b5;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    box-shadow: 7px 7px 5px rgba(240, 240, 240, 0.6);
+    border-radius: 5px;
+    outline: none;
+}
+
+
+#btnTransferir {
+    width: 15%;
+    height: 10%;
+    background-color: #000000b5;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px 15px;
+}
+
+#btnTransferir:hover {
+    transform: scale(1.1);
+}
+
+/* FIN ESTILOS PARA TRANSFERIR */
+
+
+.correcto{
+    border: 1px rgb(5, 133, 5) solid !important;
+}
+
+.incorrecto{
+    border: 1px rgb(138, 11, 11) solid !important;
+}
+
+@keyframes animar {
+    0%{background-position: 0 50%;}
+    50%{background-position: 100% 50%;}
+    100%{background-position: 0 50%;}
+}
+
+/* @media only screen and (min-width: 680px){
+
+} */
