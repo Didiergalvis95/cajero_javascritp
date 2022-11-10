@@ -55,7 +55,7 @@ html {
 {
     width: 50%;
     height: 10%;
-    background-color: #000000b5;
+    background-color: #000000;
     border: none;
     color: white;
     box-shadow: 7px 7px 5px rgba(240, 240, 240, 0.6);
@@ -76,11 +76,36 @@ section
     
 }
 
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.cargarInicioSesion{
+    position: absolute;
+    top: 0;
+    right: 1%;
+    width: 13%;
+    height: 9vh;
+    background-color: #0000007d;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px 15px;
+    transition: 0.5s ease-in-out;
+    margin-top: 10px;
+}
+
+.cargarInicioSesion:hover{
+    scale: 1.1;
+}
+
+
 .botonLoguin
 {
     width: 30%;
     height: 10%;
-    background-color: #000000b5;
+    background-color: #000000;
     border: none;
     color: white;
     cursor: pointer;
@@ -92,7 +117,6 @@ section
 .botonLoguin:hover{
     scale: 1.1;
 }
-
 
 
 .correcto
@@ -118,5 +142,9 @@ section
     .formLoguin{
         width: 70%;
         height: 80vh;
+    }
+    .cargarInicioSesion{
+        width: 20%;
+        height: 9vh;
     }
 }

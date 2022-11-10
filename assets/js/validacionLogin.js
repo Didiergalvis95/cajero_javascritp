@@ -5,6 +5,8 @@ const iniciarSesion = document.getElementById("iniciarSesion");
 const formulario = document.getElementById("formLoguin");
 const paginaError = document.getElementById("body_404");
 const textoAviso = document.getElementById("textoAviso");
+const cargarInicioSesion = document.querySelector('#cargarInicioSesion');
+
 
 let errores = 0;
 iniciarSesion.addEventListener("click", (e) => {
@@ -23,6 +25,7 @@ iniciarSesion.addEventListener("click", (e) => {
       formulario.classList.add("ocultar");
       paginaError.classList.remove("ocultar");
       textoAviso.classList.remove("ocultar");
+      cargarInicioSesion.classList.remove("ocultar");
     }
   }
 });
