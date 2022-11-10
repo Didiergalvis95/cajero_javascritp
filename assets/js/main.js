@@ -1,3 +1,10 @@
+/* ---------------------- EXPRESIONES REGULARES ---------------------- */
+const expresionValidarNombre = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
+const expresionValidarNumero = /^\d{4,15}$/;
+const expresionValidarCuenta = /^\d{11}$/;
+const expresionValidarCorreo = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+
+/* ---------------------- INICIAR SESION ---------------------- */
 const usuario = document.getElementById("usuario");
 const contraseña = document.getElementById("contraseña");
 const iniciarSesion = document.getElementById("iniciarSesion");
@@ -25,6 +32,7 @@ iniciarSesion.addEventListener("click", (e) => {
     }
   }
 })
+
 
 /* ---------------------- CONFIRMACION CERRAR SESION ---------------------- */
 const btnCerrarSesion = document.querySelector('#cerrarSesion');
@@ -63,7 +71,9 @@ btnCerrarSesion.addEventListener('click',()=>{
         confirmacion.innerHTML = ''
     })
     confirmacion.append(alertaCerrar, confirmarSalir,nosalir)
-})
+         
+});
+
 
 /* ---------------------- BOTON REGRESAR ---------------------- */
 const btnVolver = document.querySelector('#regresar');
