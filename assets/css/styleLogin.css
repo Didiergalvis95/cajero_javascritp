@@ -1,0 +1,122 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,  #08614B, #148761, #12E0AD, #256152, #0EAD86);
+    background-size: 300% 300%;
+    position: relative;
+    animation: animar 7s ease infinite;
+}
+
+#body_404{
+    width: 100%;
+    background: url(../img/404Error.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+
+} 
+
+.mainLoguin 
+{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.formLoguin
+{
+    margin-top: 3%;
+    background-color: #08614B;
+    gap: 20px;
+    width: 50%;
+    height: 80vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 7px 7px 5px rgba(240, 240, 240, 0.6);
+    opacity: 60%;
+    border-radius: 5px 15px;
+}
+
+.formLoguin input:not(.botonLoguin)
+{
+    width: 50%;
+    height: 10%;
+    background-color: #000000b5;
+    border: none;
+    color: white;
+    box-shadow: 7px 7px 5px rgba(240, 240, 240, 0.6);
+    border-radius: 5px 15px;
+    font-size: 16px;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+}
+
+section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.botonLoguin
+{
+    width: 30%;
+    height: 10%;
+    background-color: #000000b5;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px 15px;
+    transition: 0.5s ease-in-out;
+    margin-top: 10px;
+}
+
+.botonLoguin:hover{
+    scale: 1.1;
+}
+
+
+
+.correcto
+{
+    border: 1px green solid !important;
+}
+.incorrecto
+{
+    border: 1px red solid !important;
+}
+.ocultar
+{
+    display: none !important;
+}
+
+@keyframes animar {
+    0%{background-position: 0 50%;}
+    50%{background-position: 100% 50%;}
+    100%{background-position: 0 50%;}
+}
+
+@media only screen and (max-width: 700px){
+    .formLoguin{
+        width: 70%;
+        height: 80vh;
+    }
+}
