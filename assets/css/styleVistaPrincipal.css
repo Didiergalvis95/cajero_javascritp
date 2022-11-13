@@ -28,6 +28,26 @@ header {
     gap: 10px;
 }
 
+.header__mostrarSaldo{
+    margin-right: 40%;
+    width: 30%;
+    height: 10vh;
+    background-color: #00000039;
+    border-radius: 5px 15px;
+}
+
+.header__mostrarSaldo h4{
+    width: 100%;
+    margin-top: 10px;
+    color: white;
+}
+
+.header__mostrarSaldo p{
+    color: white;
+    line-height: 1.3;
+    text-align: center;
+}
+
 #cerrarSesion {
     color: white;
     background-color: #000000b5;
@@ -105,7 +125,6 @@ img {
 }
 /* FIN ESTILOS PARA CONTENIDO HEADER */
 
-
 main {
     width: 100%;
     height: 80%; 
@@ -113,7 +132,6 @@ main {
     align-items: center;
     justify-content: space-between;
 }
-
 
 form {
     display: flex;
@@ -124,7 +142,6 @@ form {
     height: 80vh;
     color: white;
 }
-
 
 h4 {
     width: 30%;
@@ -146,7 +163,6 @@ hr {
     display: none !important;
 }
 
-
 .mostrar h4{
     width: 70% !important;
 }
@@ -157,10 +173,7 @@ hr {
     width: 60% !important;
 }
 
-
-
 /* ESTILOS PARA MOVIMIENTOS */
-
 .menu input {
     width: 30%;
     height: 10%;
@@ -176,7 +189,6 @@ hr {
     transform: scale(1.1);
 }
 /* FIN ESTILOS PARA MOVIMIENTOS */
-
 
 /* ESTILOS PARA CONSULTAR SALDO */
 .mostrarSaldo{
@@ -201,8 +213,6 @@ hr {
     text-align: center;
 }
 /* FIN ESTILOS PARA CONSULTAR SALDO */
-
-
 
 /* ESTILOS PARA CONSIGNAR */
 #opcionConsignar{
@@ -308,7 +318,6 @@ hr {
 #cerrarAlmacenarRetiro{
     bottom: 15% !important;
 }
-
 /* FIN ESTILOS RETIRAR */
 
 .almacenarTransferir, .almacenarRetiro{
@@ -326,7 +335,6 @@ thead td{
     color: white;
     font-weight: bold;
     border-bottom: 1px solid rgba(0, 0, 0, 0.431);
-    /* border-right: 1px solid rgba(0, 0, 0, 0.431); */
     padding:0 5px;
 }
 
@@ -379,16 +387,15 @@ tbody td{
 #btnTransferir:hover {
     transform: scale(1.1);
 }
-
 /* FIN ESTILOS PARA TRANSFERIR */
 
 
 .correcto{
-    border: 1px rgb(5, 133, 5) solid !important;
+    border: 2px rgb(5, 133, 5) solid !important;
 }
 
 .incorrecto{
-    border: 1px rgb(138, 11, 11) solid !important;
+    border: 2px rgb(138, 11, 11) solid !important;
 }
 
 @keyframes animar {
@@ -396,7 +403,3 @@ tbody td{
     50%{background-position: 100% 50%;}
     100%{background-position: 0 50%;}
 }
-
-/* @media only screen and (min-width: 680px){
-
-} */

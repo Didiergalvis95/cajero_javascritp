@@ -58,19 +58,24 @@ btnVolver.addEventListener('click', ()=>{
     btnCerrarSesion.classList.remove('ocultar');
     movimientos.classList.remove('ocultar');
     movimientos.classList.remove('mostrar');
+    // headerMostrarSaldo.classList.add('ocultar');
+
 })
 
 /* ---------------------- CONSULTAR SALDO ---------------------- */
 const btnConsultar = document.querySelector("#consultar");
 
-let saldo = 100000;
+let saldo = 1000000;
 const mostrarSaldo = document.querySelector('#mostrarSaldo');
 const mostrarSaldoDato = document.querySelector('#mostrarSaldo__dato');
+/* const headerMostrarSaldo = document.querySelector('#header__mostrarSaldo');
+const headerMostrarSaldoDato = document.querySelector('#header__mostrarSaldo__dato'); */
+
 btnConsultar.addEventListener('click', ()=>{
     mostrarSaldo.classList.remove('ocultar');
-    movimientos.classList.add('mostrar')
-
-    mostrarSaldoDato.textContent =  saldo
+    movimientos.classList.add('mostrar');
+    
+    mostrarSaldoDato.textContent =  saldo;
 } );
 /* ---------------------- FIN CONSULTAR SALDO ---------------------- */
 
@@ -154,6 +159,7 @@ inputs.forEach((input)=>{
 });
 /* ---------------------- FIN VALIDACION INPUTS ---------------------- */
 
+let fecha = new Date();
 
 /* ---------------------- OPCION RETIRAR ---------------------- */
 const btnRetirar = document.querySelector("#retirar");
@@ -170,7 +176,7 @@ btnRetirar.addEventListener('click', ()=>{
     btnCerrarSesion.classList.add('ocultar')
     mostrarSaldo.classList.add('ocultar');
     btnVolver.classList.remove('ocultar');
-
+    // headerMostrarSaldo.classList.remove('ocultar');
 
 });
 
@@ -181,19 +187,18 @@ btnRetirarCargar.addEventListener('click', ()=>{
     almacenarRetiro.classList.remove('ocultar');
 
     const montoRetirar = document.querySelector('#montoRetirar').value;
-    const fechaRetirar = document.querySelector('#fechaRetirar').value;
 
-    cargarDatosRetirar(montoRetirar,fechaRetirar);
+    cargarDatosRetirar(montoRetirar, fecha);
     saldo = (parseInt(montoRetirar)-saldo)*-1;
 });
 
 let datosRetirar = [];
-const cargarDatosRetirar = (montoRetirar,fechaRetirar) =>{
+const cargarDatosRetirar = (montoRetirar,fecha) =>{
     datosRetirar.push();
     document.querySelector('#tablaRetiro').innerHTML +=
     `<tbody>
     <td>$${montoRetirar}</td>
-    <td>${fechaRetirar}</td>
+    <td>${fecha}</td>
     </tbody>
     `
 };
@@ -223,7 +228,7 @@ btnTranferir.addEventListener('click', ()=>{
     btnCerrarSesion.classList.add('ocultar')
     mostrarSaldo.classList.add('ocultar');
     btnVolver.classList.remove('ocultar');
-
+    // headerMostrarSaldo.classList.remove('ocultar');
 
 }); 
 
@@ -238,7 +243,6 @@ btnTranferirCargar.addEventListener('click', ()=>{
     const correo = document.querySelector('#correoTransferir').value;
     const cuenta = document.querySelector('#numeroCuentaTransferir').value;
     const monto = document.querySelector('#montoTransferir').value;
-    const fecha = document.querySelector('#fechaTransferir').value;
 
     agregarDatos(nombre, correo, cuenta, monto, fecha);
     saldo = (parseInt(monto)-saldo)*-1;
@@ -292,6 +296,8 @@ btnConsignar.addEventListener('click', ()=>{
     mostrarSaldo.classList.add('ocultar');
     btnVolver.classList.remove('ocultar');
     opcionConsignar.classList.remove('ocultar');
+    // headerMostrarSaldo.classList.remove('ocultar');
+
 });
 
 btnCargarConsignacion.addEventListener('click', ()=>{

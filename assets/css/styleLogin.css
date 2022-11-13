@@ -61,6 +61,8 @@ html {
     box-shadow: 7px 7px 5px rgba(240, 240, 240, 0.6);
     border-radius: 5px 15px;
     font-size: 16px;
+    outline: none;
+
 }
 
 ::placeholder {
@@ -121,11 +123,11 @@ a{
 
 .correcto
 {
-    border: 1px green solid !important;
+    border: 2px green solid !important;
 }
 .incorrecto
 {
-    border: 1px red solid !important;
+    border:2px red solid !important;
 }
 .ocultar
 {

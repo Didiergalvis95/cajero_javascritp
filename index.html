@@ -11,11 +11,15 @@
   </head>
   <body>
     <header>
-      <section class="header__logout">
+      <nav class="header__logout">
         <img src="./assets/img/user.png" alt="" />
+        <!-- <section id="header__mostrarSaldo" class="header__mostrarSaldo ocultar">
+          <h4>Su saldo actual es:</h4>
+          <p id="header__mostrarSaldo__dato"></p>
+        </section> -->
         <input  id="cerrarSesion" type="button" value="CERRAR SESION">
         <input id="regresar" class="ocultar far fa-arrow-alt-circle-left" type="button" value="REGRESAR">
-      </section>
+      </nav>
     </header>
 
     <main>
@@ -43,7 +47,6 @@
       <form id="opcionRetirar" class="ocultar" method="POST">
         <h4>DATOS DE RETIRO </h4> <hr> 
         <input id="montoRetirar" type="text" placeholder="Monto que desea retirar"> 
-        <input id="fechaRetirar" type="date" placeholder="Fecha"> 
         <input id="btnRetirar" type="button" value="RETIRAR"></input>
       </form>
       <section id="almacenarRetiro" class="almacenarRetiro ocultar">
@@ -65,7 +68,6 @@
         <input id="correoTransferir" type="text" placeholder="Correo"> 
         <input id="numeroCuentaTransferir" type="text" placeholder="Número de cuenta"> 
         <input id="montoTransferir" type="text" placeholder="Monto que desea enviar"> 
-        <input id="fechaTransferir" type="date" placeholder="Fecha"> 
         <input id="btnTransferir" type="button" value="TRANSFERIR" ></input>
       </form>
       <section id="almacenarTransferir" class="almacenarTransferir ocultar">
