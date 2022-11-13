@@ -5,6 +5,7 @@ const expresionValidarCuenta = /^\d{11}$/;
 const expresionValidarCorreo = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
 
+
 /* ---------------------- CONFIRMACION CERRAR SESION ---------------------- */
 const btnCerrarSesion = document.querySelector('#cerrarSesion');
 const salir=document.querySelector('#salir')
@@ -74,54 +75,10 @@ btnConsultar.addEventListener('click', ()=>{
 /* ---------------------- FIN CONSULTAR SALDO ---------------------- */
 
 
-/* ---------------------- OPCION RETIRAR ---------------------- */
-const btnRetirar = document.querySelector("#retirar");
-const opcionRetirar = document.querySelector('#opcionRetirar');
+/* ---------------------- VALIDACION INPUTS ---------------------- */
+const inputs = document.querySelectorAll('input');
 
-const btnRetirarCargar = document.querySelector('#btnRetirar');
-const almacenarRetiro  = document.querySelector('#almacenarRetiro');
-const btnCerrarAlmacenarRetiro = document.querySelector('#cerrarAlmacenarRetiro');
-
-btnRetirar.addEventListener('click', ()=>{
-    opcionRetirar.classList.remove('ocultar');
-    movimientos.classList.add('ocultar');
-    btnCerrarSesion.classList.add('ocultar')
-    mostrarSaldo.classList.add('ocultar');
-    btnVolver.classList.remove('ocultar');
-});
-
-btnRetirarCargar.addEventListener('click', ()=>{
-    document.querySelector('header').classList.add('ocultar');
-    opcionRetirar.classList.add('ocultar');
-    almacenarRetiro.classList.remove('ocultar');
-});
-
-btnCerrarAlmacenarRetiro.addEventListener('click', ()=>{
-    document.querySelector('header').classList.remove('ocultar');
-    opcionRetirar.classList.remove('ocultar');
-    almacenarRetiro.classList.add('ocultar');
-});
-
-/* ---------------------- OPCION TRANSFERIR ---------------------- */
-const btnTranferir = document.querySelector("#transferir");
-const opcionTransferir = document.querySelector("#opcionTransferir");
-
-const btnTranferirCargar = document.querySelector('#btnTransferir');
-const almacenarTransferir = document.querySelector('#almacenarTransferir');
-const btnCerrarAlmacenar = document.querySelector('#cerrarAlmacenar');
-
-btnTranferir.addEventListener('click', ()=>{
-    opcionTransferir.classList.remove('ocultar');
-    movimientos.classList.add('ocultar');
-    btnCerrarSesion.classList.add('ocultar')
-    mostrarSaldo.classList.add('ocultar');
-    btnVolver.classList.remove('ocultar');
-}); 
-
-/* ---------------------- VALIDACION ---------------------- */
-const inputs = document.querySelectorAll('#opcionTransferir input');
-
-const validarTransferencia = (e) =>{
+const validarFormulario = (e) =>{
     switch (e.target.id){
         case "nombreTransferir":
     
@@ -168,26 +125,108 @@ const validarTransferencia = (e) =>{
 
             }
             break;
+        case "montoRetirar":
+            if (expresionValidarNumero.test(e.target.value)) {
+            montoRetirar.classList.add('correcto');
+            montoRetirar.classList.remove('incorrecto')
+            }else{
+                montoRetirar.classList.add('incorrecto');
+                montoRetirar.classList.remove('correcto');
+            }
+                break;
 
-        default:
-            break;
+        case "montoConsignar":
+            if (expresionValidarNumero.test(e.target.value)) {
+            montoConsignar.classList.add('correcto');
+            montoConsignar.classList.remove('incorrecto')
+            }else{
+                montoConsignar.classList.add('incorrecto');
+                montoConsignar.classList.remove('correcto');
+            }
+                break;
     }
 
 }
 inputs.forEach((input)=>{
-    // input.addEventListener('keydown', validarTransferencia);
-    input.addEventListener('blur', validarTransferencia)
+    input.addEventListener('blur', validarFormulario);
+    input.addEventListener('keyup', validarFormulario);
     
 });
+/* ---------------------- FIN VALIDACION INPUTS ---------------------- */
 
-/* btnTranferirCargar.addEventListener('click', ()=>{
-    let restarMonto = parseInt(document.querySelector('#montoTransferir').value);
-    let nuevoSaldo = document.querySelector('#mostrarSaldoDato');
-    let total = restarMonto - saldo;
-    nuevoSaldo.textContent = total
-    // let nuevoSaldo = restarMonto - saldo;
-    console.log(nuevoSaldo)
-}) */
+
+/* ---------------------- OPCION RETIRAR ---------------------- */
+const btnRetirar = document.querySelector("#retirar");
+const opcionRetirar = document.querySelector('#opcionRetirar');
+
+const btnRetirarCargar = document.querySelector('#btnRetirar');
+const almacenarRetiro  = document.querySelector('#almacenarRetiro');
+const btnCerrarAlmacenarRetiro = document.querySelector('#cerrarAlmacenarRetiro');
+
+
+btnRetirar.addEventListener('click', ()=>{
+    opcionRetirar.classList.remove('ocultar');
+    movimientos.classList.add('ocultar');
+    btnCerrarSesion.classList.add('ocultar')
+    mostrarSaldo.classList.add('ocultar');
+    btnVolver.classList.remove('ocultar');
+
+
+});
+
+/* ---------------------- ALMACENAR DATOS DE RETIRO ---------------------- */
+btnRetirarCargar.addEventListener('click', ()=>{
+    document.querySelector('header').classList.add('ocultar');
+    opcionRetirar.classList.add('ocultar');
+    almacenarRetiro.classList.remove('ocultar');
+
+    const montoRetirar = document.querySelector('#montoRetirar').value;
+    const fechaRetirar = document.querySelector('#fechaRetirar').value;
+
+    cargarDatosRetirar(montoRetirar,fechaRetirar);
+    saldo = (parseInt(montoRetirar)-saldo)*-1;
+});
+
+let datosRetirar = [];
+const cargarDatosRetirar = (montoRetirar,fechaRetirar) =>{
+    datosRetirar.push();
+    document.querySelector('#tablaRetiro').innerHTML +=
+    `<tbody>
+    <td>$${montoRetirar}</td>
+    <td>${fechaRetirar}</td>
+    </tbody>
+    `
+};
+
+btnCerrarAlmacenarRetiro.addEventListener('click', ()=>{
+    document.querySelector('header').classList.remove('ocultar');
+    opcionRetirar.classList.remove('ocultar');
+    almacenarRetiro.classList.add('ocultar');
+
+    montoRetirar.value =''
+    montoRetirar.classList.remove('correcto')
+});
+
+
+
+/* ---------------------- OPCION TRANSFERIR ---------------------- */
+const btnTranferir = document.querySelector("#transferir");
+const opcionTransferir = document.querySelector("#opcionTransferir");
+
+const btnTranferirCargar = document.querySelector('#btnTransferir');
+const almacenarTransferir = document.querySelector('#almacenarTransferir');
+const btnCerrarAlmacenar = document.querySelector('#cerrarAlmacenar');
+
+btnTranferir.addEventListener('click', ()=>{
+    opcionTransferir.classList.remove('ocultar');
+    movimientos.classList.add('ocultar');
+    btnCerrarSesion.classList.add('ocultar')
+    mostrarSaldo.classList.add('ocultar');
+    btnVolver.classList.remove('ocultar');
+
+
+}); 
+
 
 /* ---------------------- ALMACENAR DATOS DE TRANSFERENCIA ---------------------- */
 btnTranferirCargar.addEventListener('click', ()=>{
@@ -202,6 +241,7 @@ btnTranferirCargar.addEventListener('click', ()=>{
     const fecha = document.querySelector('#fechaTransferir').value;
 
     agregarDatos(nombre, correo, cuenta, monto, fecha);
+    saldo = (parseInt(monto)-saldo)*-1;
 });
 
 
@@ -213,7 +253,7 @@ const agregarDatos = (nombre, correo, cuenta, monto, fecha) =>{
         <td>${nombre}</td>
         <td>${correo}</td>
         <td>${cuenta}</td>
-        <td>${monto}</td>
+        <td>$${monto}</td>
         <td>${fecha}</td>
     </tbody>
    `
@@ -224,6 +264,15 @@ btnCerrarAlmacenar.addEventListener('click', ()=>{
     document.querySelector('header').classList.remove('ocultar');
     opcionTransferir.classList.remove('ocultar');
     almacenarTransferir.classList.add('ocultar');
+
+    nombreTransferir.value ='';
+    nombreTransferir.classList.remove('correcto');
+    correoTransferir.value ='';
+    correoTransferir.classList.remove('correcto');
+    numeroCuentaTransferir.value ='';
+    numeroCuentaTransferir.classList.remove('correcto');
+    montoTransferir.value ='';
+    montoTransferir.classList.remove('correcto');
 });
 
 
@@ -243,7 +292,6 @@ btnConsignar.addEventListener('click', ()=>{
     mostrarSaldo.classList.add('ocultar');
     btnVolver.classList.remove('ocultar');
     opcionConsignar.classList.remove('ocultar');
-    
 });
 
 btnCargarConsignacion.addEventListener('click', ()=>{
@@ -251,11 +299,16 @@ btnCargarConsignacion.addEventListener('click', ()=>{
     btnAlertaConsignar.classList.remove('ocultar');
     opcionConsignar.classList.add('ocultar');
 
+    let montoConsignar = document.querySelector('#montoConsignar').value; 
+    saldo = (parseInt(montoConsignar)+saldo);
 });
 
 btnCerrarAlerta.addEventListener('click', ()=>{
     document.querySelector('header').classList.remove('ocultar');
     btnAlertaConsignar.classList.add('ocultar');
     opcionConsignar.classList.remove('ocultar');
+
+    montoConsignar.value = '';
+    montoConsignar.classList.remove('correcto')
 });
 
