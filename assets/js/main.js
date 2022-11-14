@@ -5,7 +5,6 @@ const expresionValidarCuenta = /^\d{11}$/;
 const expresionValidarCorreo = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
 
-
 /* ---------------------- CONFIRMACION CERRAR SESION ---------------------- */
 const btnCerrarSesion = document.querySelector('#cerrarSesion');
 const salir=document.querySelector('#salir');
@@ -48,7 +47,6 @@ btnCerrarSesion.addEventListener('click',()=>{
         confirmacion.innerHTML = ''
     })
     confirmacion.append(alertaCerrar, confirmarSalir,nosalir);
-
 });
 
 
@@ -63,8 +61,6 @@ btnVolver.addEventListener('click', ()=>{
     btnCerrarSesion.classList.remove('ocultar');
     movimientos.classList.remove('ocultar');
     movimientos.classList.remove('mostrar');
-    // headerMostrarSaldo.classList.add('ocultar');
-
 })
 
 /* ---------------------- CONSULTAR SALDO ---------------------- */
@@ -79,8 +75,7 @@ btnConsultar.addEventListener('click', ()=>{
     movimientos.classList.add('mostrar');
     
     mostrarSaldoDato.textContent =  saldo;
-
-} );
+});
 /* ---------------------- FIN CONSULTAR SALDO ---------------------- */
 
 
@@ -173,7 +168,6 @@ const validarFormulario = (e) =>{
 inputs.forEach((input)=>{
     input.addEventListener('blur', validarFormulario);
     input.addEventListener('keyup', validarFormulario);
-    
 });
 /* ---------------------- FIN VALIDACION INPUTS ---------------------- */
 
@@ -194,20 +188,15 @@ btnRetirar.addEventListener('click', ()=>{
     btnCerrarSesion.classList.add('ocultar');
     mostrarSaldo.classList.add('ocultar');
     btnVolver.classList.remove('ocultar');
-
 });
 
 /* ---------------------- ALMACENAR DATOS DE RETIRO ---------------------- */
-btnRetirarCargar.addEventListener('click', ()=>{
+btnRetirarCargar.addEventListener('click', (e)=>{
     document.querySelector('header').classList.add('ocultar');
     document.querySelector('footer').classList.add('ocultar');
     opcionRetirar.classList.add('ocultar');
     almacenarRetiro.classList.remove('ocultar');
-
-    // if(montoRetirar > saldo){
-
-    // }
-
+    
     let montoRetirar = document.querySelector('#montoRetirar').value;
     
     cargarDatosRetirar(montoRetirar, fecha);
@@ -219,8 +208,8 @@ const cargarDatosRetirar = (montoRetirar,fecha) =>{
     datosRetirar.push();
     document.querySelector('#tablaRetiro').innerHTML +=
     `<tbody>
-    <td>$${montoRetirar}</td>
-    <td>${fecha}</td>
+        <td>$${montoRetirar}</td>
+        <td>${fecha}</td>
     </tbody>
     `
 };
@@ -231,10 +220,8 @@ btnCerrarAlmacenarRetiro.addEventListener('click', ()=>{
     opcionRetirar.classList.remove('ocultar');
     almacenarRetiro.classList.add('ocultar');
 
-
     montoRetirar.value ='';
     montoRetirar.classList.remove('correcto');
-
 });
 
 
@@ -253,7 +240,6 @@ btnTranferir.addEventListener('click', ()=>{
     btnCerrarSesion.classList.add('ocultar');
     mostrarSaldo.classList.add('ocultar');
     btnVolver.classList.remove('ocultar');
-
 }); 
 
 
@@ -271,7 +257,6 @@ btnTranferirCargar.addEventListener('click', ()=>{
 
     agregarDatos(nombre, correo, cuenta, monto, fecha);
     saldo = (parseInt(monto)-saldo)*-1;
-
 });
 
 
@@ -304,7 +289,6 @@ btnCerrarAlmacenar.addEventListener('click', ()=>{
     numeroCuentaTransferir.classList.remove('correcto');
     montoTransferir.value ='';
     montoTransferir.classList.remove('correcto');
-
 });
 
 
@@ -324,7 +308,6 @@ btnConsignar.addEventListener('click', ()=>{
     mostrarSaldo.classList.add('ocultar');
     btnVolver.classList.remove('ocultar');
     opcionConsignar.classList.remove('ocultar');
-
 });
 
 btnCargarConsignacion.addEventListener('click', ()=>{
@@ -344,7 +327,6 @@ btnCerrarAlerta.addEventListener('click', ()=>{
     opcionConsignar.classList.remove('ocultar');
 
     montoConsignar.value = '';
-    montoConsignar.classList.remove('correcto')
-
+    montoConsignar.classList.remove('correcto');
 });
 
