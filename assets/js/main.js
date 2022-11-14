@@ -32,7 +32,7 @@ btnCerrarSesion.addEventListener('click',()=>{
     mostrarSaldo.classList.add('ocultar');
     confirmacion.classList.remove('ocultar');
     document.querySelector('header').classList.add('ocultar');
-
+    document.querySelector('footer').classList.add('ocultar');
 
     confirmarSalir.addEventListener('click',()=>{
         confirmacion.classList.add('ocultar');
@@ -40,9 +40,10 @@ btnCerrarSesion.addEventListener('click',()=>{
         
     })
     nosalir.addEventListener('click',()=>{
+        document.querySelector('header').classList.remove('ocultar');
+        document.querySelector('footer').classList.remove('ocultar');
         movimientos.classList.remove('ocultar');
         confirmacion.classList.add('ocultar');
-    document.querySelector('header').classList.remove('ocultar');
 
         confirmacion.innerHTML = ''
     })
