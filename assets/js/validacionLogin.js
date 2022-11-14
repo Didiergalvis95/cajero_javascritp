@@ -27,7 +27,7 @@ const validarFormulario = (e) =>{
       }
       break;
     case "contraseña":
-      if(expresionValidarNumero.test(e.target.value) && contrasena.value == 654321 ){
+      if(expresionValidarNumero.test(e.target.value) && contrasena.value == 654321){
         contrasena.classList.add('correcto');
         contrasena.classList.remove("incorrecto");
       }else{
@@ -46,17 +46,30 @@ inputs.forEach((input) =>{
 
 let errores = 0;
 iniciarSesion.addEventListener("click", (e) => {
-  if (usuario.value == "GrupoUribe" && contrasena.value == 654321) {
-
-  }else {
-    errores++;
-    e.preventDefault()
-    
+  function error(){
     if (errores == 3) {
       formulario.classList.add("ocultar");
       paginaError.classList.remove("ocultar");
       textoAviso.classList.remove("ocultar");
       cargarInicioSesion.classList.remove("ocultar");
+      document.querySelector('footer').classList.add('ocultar');
     }
+  }
+  
+  if (usuario.value == "GrupoUribe" && contrasena.value == 654321) {
+    // usuario.classList.add('correcto');
+    // contrasena.classList.add('correcto');
+
+  }else if(usuario.value == "" && contrasena.value == ""){
+    usuario.classList.add('incorrecto');
+    contrasena.classList.add('incorrecto');
+    errores++;
+    e.preventDefault()
+    error()
+
+  }else {
+    errores++;
+    e.preventDefault()
+    error()
   };
 });

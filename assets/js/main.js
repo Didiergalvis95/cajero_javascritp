@@ -8,30 +8,32 @@ const expresionValidarCorreo = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$
 
 /* ---------------------- CONFIRMACION CERRAR SESION ---------------------- */
 const btnCerrarSesion = document.querySelector('#cerrarSesion');
-const salir=document.querySelector('#salir')
-const confirmacion = document.querySelector('#confirmarCierreSesion')
-const movimientos=document.querySelector('#movimientos')
+const salir=document.querySelector('#salir');
+const confirmacion = document.querySelector('#confirmarCierreSesion');
+const movimientos=document.querySelector('#movimientos');
 
 btnCerrarSesion.addEventListener('click',()=>{
-    const confirmarSalir= document.createElement ('input')
-    confirmarSalir.id='Salir'
-    confirmarSalir.type='button'
-    const nosalir=document.createElement('input')
-    nosalir.id='noSalir'
-    nosalir.type='button'
-    
-    const alertaCerrar=document.createElement ('h4')
-    alertaCerrar.id='alertaCerrar'
+    const confirmarSalir= document.createElement ('input');
+    confirmarSalir.id='Salir';
+    confirmarSalir.type='button';
+    const nosalir=document.createElement('input');
+    nosalir.id='noSalir';
+    nosalir.type='button';
 
-    alertaCerrar.textContent='¿DESEA CERRAR SESION?'
-    
-    movimientos.classList.remove('mostrar')
+    const alertaCerrar=document.createElement ('h4');
+    alertaCerrar.id='alertaCerrar';
+
+    alertaCerrar.textContent='¿DESEA CERRAR SESION?';   
+    confirmarSalir.value='SI'
+    nosalir.value='NO'
+
+    movimientos.classList.remove('mostrar');
     movimientos.classList.add('ocultar');
     mostrarSaldo.classList.add('ocultar');
     confirmacion.classList.remove('ocultar');
-    
-    confirmarSalir.value='SI'
-    nosalir.value='NO'
+    document.querySelector('header').classList.add('ocultar');
+
+
     confirmarSalir.addEventListener('click',()=>{
         confirmacion.classList.add('ocultar');
         window.location='./login.html'
@@ -40,10 +42,12 @@ btnCerrarSesion.addEventListener('click',()=>{
     nosalir.addEventListener('click',()=>{
         movimientos.classList.remove('ocultar');
         confirmacion.classList.add('ocultar');
+    document.querySelector('header').classList.remove('ocultar');
+
         confirmacion.innerHTML = ''
     })
-    confirmacion.append(alertaCerrar, confirmarSalir,nosalir)
-         
+    confirmacion.append(alertaCerrar, confirmarSalir,nosalir);
+
 });
 
 
@@ -68,14 +72,13 @@ const btnConsultar = document.querySelector("#consultar");
 let saldo = 1000000;
 const mostrarSaldo = document.querySelector('#mostrarSaldo');
 const mostrarSaldoDato = document.querySelector('#mostrarSaldo__dato');
-/* const headerMostrarSaldo = document.querySelector('#header__mostrarSaldo');
-const headerMostrarSaldoDato = document.querySelector('#header__mostrarSaldo__dato'); */
 
 btnConsultar.addEventListener('click', ()=>{
     mostrarSaldo.classList.remove('ocultar');
     movimientos.classList.add('mostrar');
     
     mostrarSaldoDato.textContent =  saldo;
+
 } );
 /* ---------------------- FIN CONSULTAR SALDO ---------------------- */
 
@@ -85,26 +88,42 @@ const inputs = document.querySelectorAll('input');
 
 const validarFormulario = (e) =>{
     switch (e.target.id){
+        case "montoRetirar":
+            if (expresionValidarNumero.test(e.target.value) ) {
+                montoRetirar.classList.add('correcto');
+                montoRetirar.classList.remove('incorrecto');
+                document.querySelector('#btnRetirar').disabled = false;
+
+            }else{
+                montoRetirar.classList.add('incorrecto');
+                montoRetirar.classList.remove('correcto');
+                document.querySelector('#btnRetirar').disabled = true;
+
+            }
+                break;
         case "nombreTransferir":
     
             if(expresionValidarNombre.test(e.target.value)){
                 nombreTransferir.classList.add('correcto');
                 nombreTransferir.classList.remove('incorrecto');
+                document.querySelector('#btnTransferir').disabled = false;
 
             }else{
                 nombreTransferir.classList.add('incorrecto');
+                document.querySelector('#btnTransferir').disabled = true; 
 
             }
             break;
-
         case "correoTransferir":
     
             if(expresionValidarCorreo.test(e.target.value)){
                 correoTransferir.classList.add('correcto');
                 correoTransferir.classList.remove('incorrecto');
+                document.querySelector('#btnTransferir').disabled = false;
 
             }else{
                 correoTransferir.classList.add('incorrecto');
+                document.querySelector('#btnTransferir').disabled = true;
 
             }
             break;
@@ -113,9 +132,11 @@ const validarFormulario = (e) =>{
             if(expresionValidarCuenta.test(e.target.value)){
                 numeroCuentaTransferir.classList.add('correcto');
                 numeroCuentaTransferir.classList.remove('incorrecto');
+                document.querySelector('#btnTransferir').disabled = false;
 
             }else{
                 numeroCuentaTransferir.classList.add('incorrecto');
+                document.querySelector('#btnTransferir').disabled = true;
 
             }
             break;
@@ -124,29 +145,25 @@ const validarFormulario = (e) =>{
             if(expresionValidarNumero.test(e.target.value)){
                 montoTransferir.classList.add('correcto');
                 montoTransferir.classList.remove('incorrecto');
+                document.querySelector('#btnTransferir').disabled = false;
 
             }else{
                 montoTransferir.classList.add('incorrecto');
+                document.querySelector('#btnTransferir').disabled = true;
 
             }
             break;
-        case "montoRetirar":
-            if (expresionValidarNumero.test(e.target.value)) {
-            montoRetirar.classList.add('correcto');
-            montoRetirar.classList.remove('incorrecto')
-            }else{
-                montoRetirar.classList.add('incorrecto');
-                montoRetirar.classList.remove('correcto');
-            }
-                break;
-
         case "montoConsignar":
             if (expresionValidarNumero.test(e.target.value)) {
-            montoConsignar.classList.add('correcto');
-            montoConsignar.classList.remove('incorrecto')
+                montoConsignar.classList.add('correcto');
+                montoConsignar.classList.remove('incorrecto');
+                document.querySelector('#btnConsignar').disabled = false;
+
             }else{
                 montoConsignar.classList.add('incorrecto');
                 montoConsignar.classList.remove('correcto');
+                document.querySelector('#btnConsignar').disabled = true;
+
             }
                 break;
     }
@@ -173,21 +190,25 @@ const btnCerrarAlmacenarRetiro = document.querySelector('#cerrarAlmacenarRetiro'
 btnRetirar.addEventListener('click', ()=>{
     opcionRetirar.classList.remove('ocultar');
     movimientos.classList.add('ocultar');
-    btnCerrarSesion.classList.add('ocultar')
+    btnCerrarSesion.classList.add('ocultar');
     mostrarSaldo.classList.add('ocultar');
     btnVolver.classList.remove('ocultar');
-    // headerMostrarSaldo.classList.remove('ocultar');
 
 });
 
 /* ---------------------- ALMACENAR DATOS DE RETIRO ---------------------- */
 btnRetirarCargar.addEventListener('click', ()=>{
     document.querySelector('header').classList.add('ocultar');
+    document.querySelector('footer').classList.add('ocultar');
     opcionRetirar.classList.add('ocultar');
     almacenarRetiro.classList.remove('ocultar');
 
-    const montoRetirar = document.querySelector('#montoRetirar').value;
+    // if(montoRetirar > saldo){
 
+    // }
+
+    let montoRetirar = document.querySelector('#montoRetirar').value;
+    
     cargarDatosRetirar(montoRetirar, fecha);
     saldo = (parseInt(montoRetirar)-saldo)*-1;
 });
@@ -205,11 +226,14 @@ const cargarDatosRetirar = (montoRetirar,fecha) =>{
 
 btnCerrarAlmacenarRetiro.addEventListener('click', ()=>{
     document.querySelector('header').classList.remove('ocultar');
+    document.querySelector('footer').classList.remove('ocultar');
     opcionRetirar.classList.remove('ocultar');
     almacenarRetiro.classList.add('ocultar');
 
-    montoRetirar.value =''
-    montoRetirar.classList.remove('correcto')
+
+    montoRetirar.value ='';
+    montoRetirar.classList.remove('correcto');
+
 });
 
 
@@ -225,10 +249,9 @@ const btnCerrarAlmacenar = document.querySelector('#cerrarAlmacenar');
 btnTranferir.addEventListener('click', ()=>{
     opcionTransferir.classList.remove('ocultar');
     movimientos.classList.add('ocultar');
-    btnCerrarSesion.classList.add('ocultar')
+    btnCerrarSesion.classList.add('ocultar');
     mostrarSaldo.classList.add('ocultar');
     btnVolver.classList.remove('ocultar');
-    // headerMostrarSaldo.classList.remove('ocultar');
 
 }); 
 
@@ -236,6 +259,7 @@ btnTranferir.addEventListener('click', ()=>{
 /* ---------------------- ALMACENAR DATOS DE TRANSFERENCIA ---------------------- */
 btnTranferirCargar.addEventListener('click', ()=>{
     document.querySelector('header').classList.add('ocultar');
+    document.querySelector('footer').classList.add('ocultar');
     opcionTransferir.classList.add('ocultar');
     almacenarTransferir.classList.remove('ocultar');
 
@@ -246,6 +270,7 @@ btnTranferirCargar.addEventListener('click', ()=>{
 
     agregarDatos(nombre, correo, cuenta, monto, fecha);
     saldo = (parseInt(monto)-saldo)*-1;
+
 });
 
 
@@ -266,6 +291,7 @@ const agregarDatos = (nombre, correo, cuenta, monto, fecha) =>{
 
 btnCerrarAlmacenar.addEventListener('click', ()=>{
     document.querySelector('header').classList.remove('ocultar');
+    document.querySelector('footer').classList.remove('ocultar');
     opcionTransferir.classList.remove('ocultar');
     almacenarTransferir.classList.add('ocultar');
 
@@ -277,6 +303,7 @@ btnCerrarAlmacenar.addEventListener('click', ()=>{
     numeroCuentaTransferir.classList.remove('correcto');
     montoTransferir.value ='';
     montoTransferir.classList.remove('correcto');
+
 });
 
 
@@ -292,16 +319,16 @@ const btnCerrarAlerta = document.querySelector('#cerrarAlerta');
 
 btnConsignar.addEventListener('click', ()=>{
     movimientos.classList.add('ocultar');
-    btnCerrarSesion.classList.add('ocultar')
+    btnCerrarSesion.classList.add('ocultar');
     mostrarSaldo.classList.add('ocultar');
     btnVolver.classList.remove('ocultar');
     opcionConsignar.classList.remove('ocultar');
-    // headerMostrarSaldo.classList.remove('ocultar');
 
 });
 
 btnCargarConsignacion.addEventListener('click', ()=>{
     document.querySelector('header').classList.add('ocultar');
+    document.querySelector('footer').classList.add('ocultar');
     btnAlertaConsignar.classList.remove('ocultar');
     opcionConsignar.classList.add('ocultar');
 
@@ -311,10 +338,12 @@ btnCargarConsignacion.addEventListener('click', ()=>{
 
 btnCerrarAlerta.addEventListener('click', ()=>{
     document.querySelector('header').classList.remove('ocultar');
+    document.querySelector('footer').classList.remove('ocultar');
     btnAlertaConsignar.classList.add('ocultar');
     opcionConsignar.classList.remove('ocultar');
 
     montoConsignar.value = '';
     montoConsignar.classList.remove('correcto')
+
 });
 

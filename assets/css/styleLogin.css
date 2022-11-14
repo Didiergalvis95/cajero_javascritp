@@ -21,8 +21,7 @@ html {
 
 } 
 
-.mainLoguin 
-{
+main{
     height: 100%;
     width: 100%;
     display: flex;
@@ -32,9 +31,7 @@ html {
 }
 
 
-
-.formLoguin
-{
+.formLoguin{
     margin-top: 3%;
     background-color: #08614B;
     gap: 20px;
@@ -51,8 +48,7 @@ html {
     border-radius: 5px 15px;
 }
 
-.formLoguin input:not(.botonLoguin)
-{
+.formLoguin input:not(.botonLoguin){
     width: 50%;
     height: 10%;
     background-color: #000000;
@@ -70,14 +66,6 @@ html {
     text-align: center;
 }
 
-section
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
 a{
     text-decoration: none;
     color: white;
@@ -87,8 +75,8 @@ a{
     position: absolute;
     top: 0;
     right: 1%;
-    width: 13%;
-    height: 9vh;
+    width: 135px;
+    height: 51px;
     background-color: #0000007d;
     border: none;
     color: white;
@@ -103,8 +91,7 @@ a{
 }
 
 
-.botonLoguin
-{
+.botonLoguin{
     width: 30%;
     height: 10%;
     background-color: #000000;
@@ -120,17 +107,20 @@ a{
     scale: 1.1;
 }
 
+footer h5{
+    text-align: center;
+    font-size: 90%;
+    color: white;
+}
 
-.correcto
-{
+
+.correcto{
     border: 2px green solid !important;
 }
-.incorrecto
-{
+.incorrecto{
     border:2px red solid !important;
 }
-.ocultar
-{
+.ocultar{
     display: none !important;
 }
 

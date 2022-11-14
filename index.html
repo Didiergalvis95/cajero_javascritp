@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/styleVistaPrincipal.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <title>Cajero</title>
   </head>
   <body>
@@ -34,10 +32,10 @@
         <input id="consignar" type="button" value="CONSIGNAR SALDO" />
       </form>
       
-      <section id="mostrarSaldo" class="mostrarSaldo ocultar">
+      <aside id="mostrarSaldo" class="mostrarSaldo ocultar">
         <h4>Su saldo actual es:</h4>
         <p id="mostrarSaldo__dato"></p>
-      </section>
+      </aside>
 
       <section id="confirmarCierreSesion" class="ocultar">
         
@@ -47,7 +45,7 @@
       <form id="opcionRetirar" class="ocultar" method="POST">
         <h4>DATOS DE RETIRO </h4> <hr> 
         <input id="montoRetirar" type="text" placeholder="Monto que desea retirar"> 
-        <input id="btnRetirar" type="button" value="RETIRAR"></input>
+        <input id="btnRetirar" type="button" value="RETIRAR" disabled></input>
       </form>
       <section id="almacenarRetiro" class="almacenarRetiro ocultar">
         <table id="tablaRetiro" class="tablaRetiro">
@@ -68,7 +66,7 @@
         <input id="correoTransferir" type="text" placeholder="Correo"> 
         <input id="numeroCuentaTransferir" type="text" placeholder="Número de cuenta"> 
         <input id="montoTransferir" type="text" placeholder="Monto que desea enviar"> 
-        <input id="btnTransferir" type="button" value="TRANSFERIR" ></input>
+        <input id="btnTransferir" type="button" value="TRANSFERIR" disabled></input>
       </form>
       <section id="almacenarTransferir" class="almacenarTransferir ocultar">
         <table id="tablaTransaccion" class="tablaTransaccion">
@@ -90,7 +88,7 @@
       <form id="opcionConsignar" class="ocultar" method="POST">
         <h4>¿QUE MONTO DESEA CONSIGNAR?</h4> <hr> 
         <input id="montoConsignar"  type="text" placeholder="Cantidad">
-        <input id="btnConsignar" type="button" value="CONSIGNAR">
+        <input id="btnConsignar" type="button" value="CONSIGNAR" disabled>
       </form>
       <section id="alertaConsignar" class="alertaConsignar ocultar">
         <h4>Consignacion Exitosa</h4>
@@ -99,9 +97,9 @@
 
     </main>
 
-    <!-- <footer>
-        
-    </footer> -->
+    <footer>
+        <h5>&copy; Todos los derechos reservados</h5>
+    </footer> 
 
     <script src="./assets/js/main.js"></script>
   </body>

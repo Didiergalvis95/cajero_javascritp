@@ -52,8 +52,8 @@ header {
     color: white;
     background-color: #000000b5;
     border: none;
-    width: 125px;
-    height: 41px;
+    width: 135px;
+    height: 51px;
     border-radius: 5px 15px;
     cursor: pointer;
 }
@@ -106,8 +106,8 @@ header {
     color: white;
     background-color: #000000b5;
     border: none;
-    width: 125px;
-    height: 41px;
+    width: 135px;
+    height: 51px;
     border-radius: 5px 15px;
     cursor: pointer;
 }
@@ -388,6 +388,14 @@ tbody td{
     transform: scale(1.1);
 }
 /* FIN ESTILOS PARA TRANSFERIR */
+
+
+footer h5{
+    text-align: center;
+    font-size: 90%;
+    color: white;
+}
+
 
 
 .correcto{
