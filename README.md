@@ -1,4 +1,5 @@
-# cajero_javascript
+# Cajero
 
+#### Programado por: Didier Alexander Galvis
 ##### Todos los derechos reservados
-###### CESDE-GRUPO URIBE Octubre 2022
+###### CESDE-GRUPO URIBE Noviembre 2022
